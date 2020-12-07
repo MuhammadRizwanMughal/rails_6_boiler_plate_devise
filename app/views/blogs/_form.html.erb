@@ -1,27 +1,46 @@
-<%= form_with(model: blog, local: true) do |form| %>
-  <% if blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">Save Blog</div>
+      <div class="card-body">
+        <%= form_with(model: blog, local: true) do |f| %>
+          <% if blog.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
 
-      <ul>
-        <% blog.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+              <ul>
+                <% blog.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= f.label :title, class: 'cols-sm-2 control-label' %>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <%= f.text_field :title, autocomplete: "current-password", class: 'form-control', placeholder: 'Enter your Title' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :content, class: 'cols-sm-2 control-label' %>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <%= f.text_area :content, autocomplete: "current-password", class: 'form-control', placeholder: 'Enter your content' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group ">
+            <%= f.submit "Save Blog", class: 'btn btn-primary btn-lg btn-block login-button' %>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+        </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
   </div>
+</div>
+</div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

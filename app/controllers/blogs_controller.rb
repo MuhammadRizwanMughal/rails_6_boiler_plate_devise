@@ -65,7 +65,7 @@ class BlogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
-      @blog = current_user.blogs.find_by(id: params[:id])
+      @blog = Blog.find_by(id: params[:id])
       unless @blog
         redirect_back(fallback_location: root_path)
       end

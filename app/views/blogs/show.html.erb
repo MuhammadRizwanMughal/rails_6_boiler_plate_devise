@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @blog.content %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @blog.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-4">
+      user: <%= @blog.user.email %>
+    </div>
+    <div class="col-md-8">
+      <%= @blog.title %>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <%= @blog.content %>
+    </div>
+  </div>
+  <hr>
+  <div id="comments">
+    <%= render 'blogs/comments/index', comments: @blog.comments %>
+  </div>
+  <div class="comment-form-container">
+    <%= render 'blogs/comments/from', blog: @blog, comment: Comment.new %>
+  </div>
+</div>
