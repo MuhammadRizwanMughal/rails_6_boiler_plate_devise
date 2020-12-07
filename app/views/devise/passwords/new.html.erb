@@ -14,7 +14,10 @@
             </div>
           </div>
           <div class="form-group ">
-            <%= f.submit "Create account", class: 'btn btn-primary btn-lg btn-block login-button' %>
+            <%= f.submit "Send email to my mail.", class: 'btn btn-primary btn-lg btn-block login-button' %>
+          </div>
+          <div class="form-group">
+            <%= render "devise/shared/links" %>
           </div>
         <% end %>
       </div>
@@ -22,4 +25,3 @@
   </div>
 </div>
 
-  <%= render "devise/shared/links" %>
