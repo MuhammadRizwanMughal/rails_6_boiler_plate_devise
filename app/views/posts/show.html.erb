@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-4">
+      user: <%= @post.user.email %>
+    </div>
+    <div class="col-md-8">
+      <%= @post.title %>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <%= image_tag url_for(@post.image), class: 'img-fluid' %>
+    </div>
+  </div>
+  <hr>
+</div>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

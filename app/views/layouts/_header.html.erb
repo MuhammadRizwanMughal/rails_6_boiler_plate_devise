@@ -1,11 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Blog App</a>
+  <a class="navbar-brand" href="#">File Sharing Application</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <% if signed_in? %>
+      <%= link_to 'New Image', new_post_path, class: 'nav-link' %>
+      <%= link_to 'Images', posts_path, class: 'nav-link'%>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link'%>
     <% else %>
       <%= link_to 'login', new_user_session_path, class: 'nav-link' %>
